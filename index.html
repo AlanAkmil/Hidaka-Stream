@@ -549,6 +549,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 
 <script>
 const API = "/api/donghub";
+const IMG = (url) => url ? `/api/img?url=${encodeURIComponent(url)}` : "";
 let scheduleData = null;
 let currentDay = null;
 let seriesMode = "new";
@@ -602,7 +603,7 @@ function renderLatest(items) {
   if (!items.length) { el.innerHTML = `<div class="empty">Tidak ada data</div>`; return; }
   el.innerHTML = items.map(i => `
     <div class="ep-card" onclick="openDetail('${encodeURIComponent(slug(i.url))}')">
-      <img class="ep-thumb" src="${i.thumbnail || ''}" onerror="this.style.background='#2a1f0f'" loading="lazy" />
+      <img class="ep-thumb" src="${IMG(i.thumbnail)}" onerror="this.style.background='#2a1f0f'" loading="lazy" />
       <div class="ep-info">
         <div class="ep-title">${i.title}</div>
         <div class="ep-num">${i.episode || ''}</div>
@@ -616,7 +617,7 @@ function renderPopular(items) {
   el.innerHTML = items.map((i, idx) => `
     <div class="pop-item" onclick="openDetail('${encodeURIComponent(slug(i.url))}')">
       <span class="pop-rank ${idx < 3 ? 'top' : ''}">${String(idx+1).padStart(2,'0')}</span>
-      <img class="pop-thumb" src="${i.thumbnail || ''}" onerror="this.style.background='#2a1f0f'" loading="lazy" />
+      <img class="pop-thumb" src="${IMG(i.thumbnail)}" onerror="this.style.background='#2a1f0f'" loading="lazy" />
       <span class="pop-title">${i.title}</span>
     </div>`).join("");
 }
@@ -644,7 +645,7 @@ document.getElementById("search-input").addEventListener("keydown", e => { if (e
 function cardHTML(i) {
   return `<div class="card" onclick="openDetail('${encodeURIComponent(slug(i.url))}')">
     ${i.status ? `<div class="card-status">${i.status}</div>` : ""}
-    <img class="card-thumb" src="${i.thumbnail || ''}" onerror="this.style.background='#2a1f0f'" loading="lazy" />
+    <img class="card-thumb" src="${IMG(i.thumbnail)}" onerror="this.style.background='#2a1f0f'" loading="lazy" />
     <div class="card-info">
       <div class="card-title">${i.title}</div>
       ${i.episode ? `<div class="card-ep">${i.episode}</div>` : ""}
@@ -730,11 +731,11 @@ async function openDetail(encodedSlug) {
     const eps = (d.result || []);
     body.innerHTML = `
       <div class="detail-banner">
-        <img class="detail-banner-img" src="${d.poster || ''}" onerror="this.style.display='none'" />
+        <img class="detail-banner-img" src="${IMG(d.poster)}" onerror="this.style.display='none'" />
       </div>
       <div class="detail-content">
         <div class="detail-poster-row">
-          <img class="detail-poster" src="${d.poster || ''}" onerror="this.style.background='#2a1f0f'" />
+          <img class="detail-poster" src="${IMG(d.poster)}" onerror="this.style.background='#2a1f0f'" />
           <div class="detail-meta">
             <div class="detail-title">${d.title}</div>
             <div class="detail-tags">${(d.genres||[]).slice(0,4).map(g=>`<span class="tag">${g}</span>`).join("")}</div>
