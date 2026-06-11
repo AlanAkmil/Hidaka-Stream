@@ -795,7 +795,7 @@ async function openWatch(encodedSlug) {
       sl.innerHTML = `<div class="empty" style="width:100%">Tidak ada mirror tersedia</div>`;
     } else {
       sl.innerHTML = allServers.map((sv, i) => `
-        <button class="server-btn ${i===0?'active':''}" onclick="switchServer(this,'${encodeURIComponent(sv.url)}')">${sv.name || "Mirror "+（i+1)}</button>
+        <button class="server-btn ${i===0?'active':''}" onclick="switchServer(this,'${encodeURIComponent(sv.url)}')">${sv.name || "Mirror "+(i+1)}</button>
       `).join("");
     }
 
