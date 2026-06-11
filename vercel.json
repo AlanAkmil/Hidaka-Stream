@@ -1,6 +1,8 @@
 {
   "rewrites": [
     { "source": "/api/donghub", "destination": "/api/donghub.js" },
+    { "source": "/api/lk21", "destination": "/api/lk21.js" },
+    { "source": "/api/img", "destination": "/api/img.js" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
