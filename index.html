@@ -465,19 +465,34 @@ const LK_API = "/api/lk21";
 const IMG = u => u ? `/api/img?url=${encodeURIComponent(u)}` : "";
 const HIST_KEY = "hs_history";
 
+// ==================== PERBAIKAN SLUG ====================
+function slug(url) { 
+  if (!url) return "";
+  try {
+    // Hapus domain
+    let path = url.replace(/^https?:\/\/[^/]+\//, "");
+    // Hapus trailing slash
+    path = path.replace(/\/$/, "");
+    // Hapus prefix 'anime/', 'donghua/', 'series/'
+    path = path.replace(/^(anime|donghua|series)\//, "");
+    return path;
+  } catch(e) {
+    return url;
+  }
+}
+// ========================================================
+
 // State
 let scheduleLoaded=false, scheduleData={}, currentDay="";
 let seriesMode="new", seriesPage=1;
 let filmGridMode="home", filmPage=1;
 let searchModeVal="donghua";
 let watchData=null;
-let homeHeroTimer=null, homeHeroIdx=0, homeHeroItems=[];
-let dhHeroTimer=null, dhHeroIdx=0, dhHeroItems=[];
-let filmFeatured=null;
+let homeHeroTimer=null;
+let dhHeroTimer=null;
 let dhLoaded=false, filmLoaded=false;
 
 // ── UTILS ──
-function slug(url){ return url?url.replace(/^https?:\/\/[^/]+\//,"").replace(/\/$/,""):""; }
 function toast(m){ const t=document.getElementById("toast"); t.textContent=m; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),2200); }
 async function apiGet(base,p){ const r=await fetch(`${base}?${new URLSearchParams(p)}`); if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); }
 
@@ -492,13 +507,13 @@ function addHist(slugVal,epTitle,seriesTitle,thumb,type){
 function clearHistory(){ saveHist([]); renderCW(); }
 function renderCW(){
   const h=getHist(); const sec=document.getElementById("cw-section"); const list=document.getElementById("cw-list");
-  if(!h.length){sec.style.display="none";return;}
-  sec.style.display="block";
-  list.innerHTML=h.map(i=>`
+  if(!h.length){if(sec) sec.style.display="none";return;}
+  if(sec) sec.style.display="block";
+  if(list) list.innerHTML=h.map(i=>`
     <div class="cw-card" onclick="${i.type==='film'?`openFilmWatch('${encodeURIComponent(i.slug)}','${encodeURIComponent(i.seriesTitle||"")}','${encodeURIComponent(i.thumb||"")}')`:`openWatch('${encodeURIComponent(i.slug)}')`}">
       <img class="cw-thumb" src="${IMG(i.thumb)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
       <div class="cw-bar"><div class="cw-prog"></div></div>
-      <div class="cw-info"><div class="cw-ep">${i.epTitle||""}</div><div class="cw-title">${i.seriesTitle||""}</div></div>
+      <div class="cw-info"><div class="cw-ep">${escapeHtml(i.epTitle||"")}</div><div class="cw-title">${escapeHtml(i.seriesTitle||"")}</div></div>
     </div>`).join("");
 }
 
@@ -523,7 +538,7 @@ function buildHero(trackId, dotsId, items, timerRef, idxRef, clickFn){
     dots.appendChild(dot);
   });
   return setInterval(()=>{
-    if(idxRef.val===undefined) idxRef.val=0;
+    if(!idxRef || idxRef.val===undefined) idxRef={val:0};
     idxRef.val=(idxRef.val+1)%items.length;
     goHeroTo(trackId,dotsId,idxRef.val,timerRef,idxRef,items.length);
   },4000);
@@ -540,14 +555,16 @@ function escapeHtml(str){ if(!str) return ""; return str.replace(/[&<>]/g,functi
 function showSection(name){
   document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
   document.querySelectorAll(".bnav").forEach(b=>b.classList.remove("active"));
-  document.getElementById("sec-"+name).classList.add("active");
-  document.getElementById("bn-"+name).classList.add("active");
+  const sec = document.getElementById("sec-"+name);
+  const bn = document.getElementById("bn-"+name);
+  if(sec) sec.classList.add("active");
+  if(bn) bn.classList.add("active");
   if(name==="schedule"&&!scheduleLoaded) loadSchedule();
   if(name==="donghua"&&!dhLoaded){ dhLoaded=true; loadDonghuaSection(); }
   if(name==="film"&&!filmLoaded){ filmLoaded=true; loadFilmSection(); }
   if(name==="home"){ renderCW(); }
 }
-function goSearch(){ showSection("search"); setTimeout(()=>document.getElementById("s-input").focus(),100); }
+function goSearch(){ showSection("search"); setTimeout(()=>{const inp=document.getElementById("s-input"); if(inp) inp.focus();},100); }
 
 // ══ BERANDA ══
 async function loadHome(){
@@ -650,7 +667,6 @@ async function loadFilmSection(){
     const featList = (trendData.movies && trendData.movies.length) ? trendData.movies : (homeData.movies || []);
     const feat = featList[0];
     if (feat) {
-      filmFeatured = feat;
       let det = { title: feat.title, synopsis: "", year: "", genre: "", image: feat.image };
       try {
         const d = await apiGet(LK_API, { cmd: "detail", url: feat.url });
@@ -684,7 +700,7 @@ async function loadFilmSection(){
 function renderFilmFeatured(det, url) {
   const safeTitle = (det.title || "Film").substring(0, 45);
   const safeSynopsis = (det.synopsis || "").substring(0, 160);
-  const yearBadge = (det.year && det.year !== "-") ? `<span class="film-feat-year">${det.year}</span><div class="film-feat-sep"></div>` : "";
+  const yearBadge = (det.year && det.year !== "-") ? `<span class="film-feat-year">${escapeHtml(det.year)}</span><div class="film-feat-sep"></div>` : "";
   const genreText = (det.genre || "").split(",")[0] || "Film";
   const featDiv=document.getElementById("film-featured");
   if(!featDiv) return;
@@ -892,7 +908,7 @@ async function openDetail(encodedSlug){
   document.body.style.overflow="hidden";
   try{
     const d=await apiGet(DH_API,{cmd:"detail",slug:s});
-    if(d.error){if(body) body.innerHTML=`<div class="empty"><div class="empty-ico">😞</div>${d.error}</div>`;return;}
+    if(d.error){if(body) body.innerHTML=`<div class="empty"><div class="empty-ico">😞</div>${escapeHtml(d.error)}</div>`;return;}
     if(backTitle) backTitle.textContent=d.title;
     const eps=d.result||[];
     if(body) body.innerHTML=`
