@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/donghub.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/donghub(.*)", "dest": "/api/donghub.js" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}
