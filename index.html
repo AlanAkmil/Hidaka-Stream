@@ -34,11 +34,11 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 /* ── BOTNAV ── */
 #botnav{position:fixed;bottom:0;left:0;right:0;z-index:200;height:var(--nav-h);
   background:var(--surface);border-top:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-around}
-.bnav{display:flex;flex-direction:column;align-items:center;gap:3px;
-  padding:5px 10px;cursor:pointer;color:var(--muted);font-size:9px;font-weight:500;
-  border:none;background:none;transition:color .2s;min-width:54px}
-.bnav svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8}
+  display:flex;align-items:center;justify-content:space-around;padding:0 2px}
+.bnav{display:flex;flex-direction:column;align-items:center;gap:2px;
+  padding:5px 4px;cursor:pointer;color:var(--muted);font-size:8.5px;font-weight:500;
+  border:none;background:none;transition:color .2s;flex:1;min-width:0}
+.bnav svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8}
 .bnav.active{color:var(--gold)}
 .bnav.active svg{stroke:var(--gold)}
 
@@ -188,8 +188,60 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 .fg2-title{font-size:12px;font-weight:600;color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.3}
 
 /* ══════════════════════════════════════
-   SEARCH
+   NOVEL — WATTPAD STYLE
 ══════════════════════════════════════ */
+.novel-feat{display:flex;gap:12px;padding:0 16px}
+.novel-feat-cover{width:90px;height:128px;object-fit:cover;border-radius:var(--radius-sm);
+  border:2px solid var(--gold-dim);flex-shrink:0;background:var(--border)}
+.novel-feat-info{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.novel-feat-title{font-size:15px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:4px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.novel-feat-author{font-size:12px;color:var(--gold);margin-bottom:6px}
+.novel-feat-stats{display:flex;gap:10px;font-size:11px;color:var(--muted)}
+
+.novel-list{display:flex;flex-direction:column;gap:10px;padding:0 16px}
+.novel-card{display:flex;gap:12px;padding:10px;background:var(--card);border-radius:var(--radius);
+  border:1px solid var(--border);cursor:pointer}
+.novel-card:active{border-color:var(--gold-dim)}
+.novel-cover{width:60px;height:84px;object-fit:cover;border-radius:6px;background:var(--border);flex-shrink:0}
+.novel-info{flex:1;min-width:0;display:flex;flex-direction:column}
+.novel-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.3}
+.novel-author{font-size:11px;color:var(--gold);margin-bottom:4px}
+.novel-desc{font-size:11px;color:var(--text2);line-height:1.4;display:-webkit-box;
+  -webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+.novel-meta{display:flex;gap:10px;font-size:10px;color:var(--muted);margin-top:4px}
+.novel-meta span{display:flex;align-items:center;gap:3px}
+.novel-tags{display:flex;gap:5px;flex-wrap:wrap;margin:6px 0}
+.novel-tag{padding:2px 8px;border-radius:10px;font-size:9px;font-weight:600;
+  background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-dim)}
+
+/* Chapter reader */
+#reader-page{display:none;position:fixed;inset:0;z-index:500;background:var(--bg);overflow-y:auto}
+#reader-page.open{display:block}
+.reader-back{position:sticky;top:0;z-index:10;background:#0c0c0ccc;backdrop-filter:blur(10px);
+  padding:11px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border)}
+.reader-content{padding:20px 18px 40px;max-width:680px;margin:0 auto}
+.reader-title{font-size:18px;font-weight:700;color:var(--gold);margin-bottom:4px}
+.reader-story{font-size:12px;color:var(--muted);margin-bottom:20px}
+.reader-para{font-size:15px;line-height:2;color:var(--text2);margin-bottom:16px;text-align:justify}
+.reader-nav{display:flex;gap:10px;padding:16px;border-top:1px solid var(--border);margin-top:20px}
+
+/* ══════════════════════════════════════
+   DRACIN — DRAMABOX STYLE
+══════════════════════════════════════ */
+.dracin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 16px}
+.dc{cursor:pointer}.dc:active{opacity:.85}
+.dc-wrap{position:relative;border-radius:var(--radius-sm);overflow:hidden;width:100%;aspect-ratio:3/4;background:var(--border)}
+.dc-img{width:100%;height:100%;object-fit:cover;display:block}
+.dc-overlay{position:absolute;bottom:0;left:0;right:0;padding:8px;background:linear-gradient(transparent,rgba(0,0,0,.92))}
+.dc-title{font-size:12px;font-weight:600;color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.3}
+.dc-badge{position:absolute;top:6px;left:6px;background:var(--gold);color:#000;font-size:9px;
+  font-weight:700;padding:2px 7px;border-radius:4px;display:flex;align-items:center;gap:3px}
+.dc-rating{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.7);color:var(--gold);
+  font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px}
+
+
 .search-bar{padding:14px 16px 0;display:flex;gap:10px}
 .s-input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
   padding:11px 14px;color:var(--text);font-size:14px;font-family:'Inter',sans-serif;outline:none}
@@ -290,10 +342,15 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 <nav id="topnav">
   <div>
     <div class="logo">HIDAKASTREAM</div>
-    <span class="logo-sub">Streaming · Donghua · Film</span>
+    <span class="logo-sub">Streaming · Donghua · Film · Novel</span>
   </div>
-  <div class="icon-btn" onclick="goSearch()">
-    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+  <div style="display:flex;gap:8px">
+    <div class="icon-btn" onclick="showSection('schedule')">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    </div>
+    <div class="icon-btn" onclick="goSearch()">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
   </div>
 </nav>
 
@@ -374,15 +431,47 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
   </div>
 </section>
 
+<!-- ══ NOVEL (WATTPAD) ══ -->
+<section id="sec-novel" class="section">
+  <div class="sh"><span class="sh-title">Novel Pilihan</span></div>
+  <div id="novel-featured" style="padding-bottom:8px">
+    <div class="loader"><div class="spinner"></div></div>
+  </div>
+  <div class="gline" style="margin:10px 0 0"></div>
+  <div class="sh"><span class="sh-title">Semua Novel</span></div>
+  <div class="novel-list" id="novel-list" style="padding-bottom:8px">
+    <div class="loader"><div class="spinner"></div></div>
+  </div>
+</section>
+
+<!-- ══ DRACIN (DRAMABOX) ══ -->
+<section id="sec-dracin" class="section">
+  <div class="sh"><span class="sh-title">Drama Pilihan</span></div>
+  <div class="film-row" id="dracin-featured-row" style="padding-bottom:4px">
+    <div class="loader"><div class="spinner"></div></div>
+  </div>
+  <div class="gline" style="margin:10px 0 0"></div>
+  <div class="sh"><span class="sh-title">Semua Drama</span></div>
+  <div class="dracin-grid" id="dracin-grid" style="padding-bottom:8px">
+    <div class="loader" style="grid-column:1/-1"><div class="spinner"></div></div>
+  </div>
+  <div class="pagination">
+    <button class="page-btn" id="dcpage-prev" onclick="changeDCPage(-1)" disabled>‹ Prev</button>
+    <button class="page-btn" id="dcpage-next" onclick="changeDCPage(1)">Next ›</button>
+  </div>
+</section>
+
 <!-- ══ CARI ══ -->
 <section id="sec-search" class="section">
   <div class="search-bar">
-    <input class="s-input" id="s-input" type="text" placeholder="Cari donghua atau film..."/>
+    <input class="s-input" id="s-input" type="text" placeholder="Cari donghua, film, novel, drama..."/>
     <button class="s-btn" onclick="doSearch()">Cari</button>
   </div>
   <div class="sm-tabs">
     <button class="sm-tab active" id="smode-dh" onclick="setSearchMode('donghua')">Donghua</button>
     <button class="sm-tab" id="smode-film" onclick="setSearchMode('film')">Film</button>
+    <button class="sm-tab" id="smode-novel" onclick="setSearchMode('novel')">Novel</button>
+    <button class="sm-tab" id="smode-dracin" onclick="setSearchMode('dracin')">Dracin</button>
   </div>
   <div id="search-results" style="padding-top:8px">
     <div class="empty"><div class="empty-ico">🔍</div>Ketik lalu tekan Cari</div>
@@ -391,7 +480,12 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 
 <!-- ══ JADWAL ══ -->
 <section id="sec-schedule" class="section">
-  <div class="sh"><span class="sh-title">Jadwal Tayang</span></div>
+  <div class="sh">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="back-btn" onclick="showSection('home')"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+      <span class="sh-title">Jadwal Tayang</span>
+    </div>
+  </div>
   <div class="sch-wrap">
     <div class="day-tabs-scroll" id="day-tabs"></div>
     <div class="sch-grid" id="sch-grid">
@@ -399,6 +493,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
     </div>
   </div>
 </section>
+
 
 </div><!-- #app -->
 
@@ -415,15 +510,20 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
     <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M17 7h5M2 17h5M17 17h5"/></svg>
     Film
   </button>
+  <button class="bnav" id="bn-novel" onclick="showSection('novel')">
+    <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    Novel
+  </button>
+  <button class="bnav" id="bn-dracin" onclick="showSection('dracin')">
+    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    Dracin
+  </button>
   <button class="bnav" id="bn-search" onclick="showSection('search')">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     Cari
   </button>
-  <button class="bnav" id="bn-schedule" onclick="showSection('schedule')">
-    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    Jadwal
-  </button>
 </nav>
+
 
 <!-- DETAIL -->
 <div id="detail-page">
@@ -455,11 +555,24 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
   </div>
 </div>
 
+<!-- READER (NOVEL) -->
+<div id="reader-page">
+  <div class="reader-back">
+    <div class="back-btn" onclick="closeReader()"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+    <span id="reader-back-title" style="font-size:13px;color:var(--text2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1"></span>
+  </div>
+  <div class="reader-content" id="reader-content">
+    <div class="loader"><div class="spinner"></div><div class="ldr-txt">Memuat chapter...</div></div>
+  </div>
+</div>
+
 <div id="toast"></div>
 
 <script>
 const DH_API = "/api/donghub";
 const LK_API = "/api/lk21";
+const WP_API = "/api/wattpad";
+const DB_API = "/api/dramabox";
 const IMG = u => u ? `/api/img?url=${encodeURIComponent(u)}` : "";
 const HIST_KEY = "hs_history";
 
@@ -467,12 +580,14 @@ const HIST_KEY = "hs_history";
 let scheduleLoaded=false, scheduleData={}, currentDay="";
 let seriesMode="new", seriesPage=1;
 let filmGridMode="home", filmPage=1;
+let dracinPage=1;
 let searchModeVal="donghua";
 let watchData=null;
 let homeHeroTimer=null, homeHeroIdx=0, homeHeroItems=[];
 let dhHeroTimer=null, dhHeroIdx=0, dhHeroItems=[];
 let filmFeatured=null;
-let dhLoaded=false, filmLoaded=false;
+let dhLoaded=false, filmLoaded=false, novelLoaded=false, dracinLoaded=false;
+
 
 // ── UTILS ──
 function slug(url){ return url?url.replace(/^https?:\/\/[^/]+\//,"").replace(/\/$/,""):""; }
@@ -531,10 +646,13 @@ function showSection(name){
   document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
   document.querySelectorAll(".bnav").forEach(b=>b.classList.remove("active"));
   document.getElementById("sec-"+name).classList.add("active");
-  document.getElementById("bn-"+name).classList.add("active");
+  const bn=document.getElementById("bn-"+name);
+  if(bn) bn.classList.add("active");
   if(name==="schedule"&&!scheduleLoaded) loadSchedule();
   if(name==="donghua"&&!dhLoaded){ dhLoaded=true; loadDonghuaSection(); }
   if(name==="film"&&!filmLoaded){ filmLoaded=true; loadFilmSection(); }
+  if(name==="novel"&&!novelLoaded){ novelLoaded=true; loadNovelSection(); }
+  if(name==="dracin"&&!dracinLoaded){ dracinLoaded=true; loadDracinSection(); }
   if(name==="home") renderCW();
 }
 function goSearch(){ showSection("search"); setTimeout(()=>document.getElementById("s-input").focus(),100); }
@@ -727,6 +845,227 @@ async function loadFilmGrid(){
 }
 function changeFPage(dir){ filmPage=Math.max(1,filmPage+dir); loadFilmGrid(); }
 
+// ══ NOVEL SECTION (WATTPAD) ══
+async function loadNovelSection(){
+  const featEl=document.getElementById("novel-featured");
+  const listEl=document.getElementById("novel-list");
+  try{
+    const d=await apiGet(WP_API,{cmd:"home",limit:20});
+    const stories=d.stories||[];
+    if(!stories.length){ featEl.innerHTML=`<div class="empty">Tidak ada data</div>`; listEl.innerHTML=""; return; }
+
+    // Featured = top 5 by votes, horizontal scroll
+    const sorted=[...stories].sort((a,b)=>(b.votes||0)-(a.votes||0));
+    const feat=sorted.slice(0,6);
+    featEl.innerHTML=`<div class="film-row" style="padding:0 16px">${feat.map(s=>`
+      <div class="film-card" onclick="openNovelDetail('${encodeURIComponent(s.url)}')">
+        <div class="film-card-wrap" style="height:160px">
+          <img class="film-card-img" src="${IMG(s.cover)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
+          <div class="film-card-overlay"><div class="film-card-title">${s.title}</div></div>
+        </div>
+      </div>`).join("")}</div>`;
+
+    // List all
+    listEl.innerHTML=stories.map(s=>novelCardHTML(s)).join("");
+  }catch{
+    featEl.innerHTML=`<div class="empty"><div class="empty-ico">⚠️</div>Gagal memuat novel</div>`;
+    listEl.innerHTML="";
+  }
+}
+function novelCardHTML(s){
+  return `<div class="novel-card" onclick="openNovelDetail('${encodeURIComponent(s.url)}')">
+    <img class="novel-cover" src="${IMG(s.cover)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
+    <div class="novel-info">
+      <div class="novel-title">${s.title}</div>
+      <div class="novel-author">by ${s.author||"Unknown"}</div>
+      <div class="novel-desc">${s.description||""}</div>
+      <div class="novel-meta">
+        <span>📖 ${s.parts||0} part</span>
+        <span>👁 ${formatNum(s.reads)}</span>
+        <span>⭐ ${formatNum(s.votes)}</span>
+      </div>
+    </div>
+  </div>`;
+}
+function formatNum(n){
+  n=n||0;
+  if(n>=1000000) return (n/1000000).toFixed(1)+"M";
+  if(n>=1000) return (n/1000).toFixed(1)+"K";
+  return String(n);
+}
+
+// ── NOVEL DETAIL ──
+async function openNovelDetail(encodedUrl){
+  const url=decodeURIComponent(encodedUrl);
+  const page=document.getElementById("detail-page");
+  const body=document.getElementById("dp-body");
+  document.getElementById("dp-back-title").textContent="Memuat...";
+  body.innerHTML=`<div class="loader" style="padding:60px"><div class="spinner"></div><div class="ldr-txt">Memuat novel...</div></div>`;
+  page.classList.add("open"); document.body.style.overflow="hidden";
+  try{
+    const d=await apiGet(WP_API,{cmd:"detail",url});
+    if(!d.success){body.innerHTML=`<div class="empty"><div class="empty-ico">😞</div>Novel tidak ditemukan</div>`;return;}
+    document.getElementById("dp-back-title").textContent=d.title;
+    const chapters=d.chapters||[];
+    body.innerHTML=`
+      <div class="dp-banner"><img class="dp-banner-img" src="${IMG(d.cover)}" onerror="this.style.display='none'"/></div>
+      <div class="dp-content">
+        <div class="dp-row">
+          <img class="dp-poster" src="${IMG(d.cover)}" onerror="this.style.background='#2a2a2a'"/>
+          <div class="dp-meta">
+            <div class="dp-title">${d.title}</div>
+            <div class="dp-tags"><span class="dp-tag">by ${d.author||"Unknown"}</span>${d.genre?`<span class="dp-tag">${d.genre}</span>`:""}</div>
+            <div class="dp-stats">
+              <div class="dp-stat">📖 <strong>${d.parts||chapters.length} Part</strong></div>
+              <div class="dp-stat">👁 <strong>${formatNum(d.reads)}</strong></div>
+              <div class="dp-stat">⭐ <strong>${formatNum(d.votes)}</strong></div>
+              <div class="dp-stat">📺 <strong>${d.status}</strong></div>
+            </div>
+          </div>
+        </div>
+        ${d.description?`<div class="dp-synopsis">${d.description}</div>`:""}
+        <div class="ep-list-hd">Daftar Chapter <span>(${chapters.length})</span></div>
+        <div class="ep-list">
+          ${chapters.map((c,idx)=>`
+            <div class="ep-row" onclick="openReader('${encodeURIComponent(c.url)}','${encodeURIComponent(d.title)}')">
+              <span class="ep-row-num">Ch ${idx+1}</span>
+              <span class="ep-row-title">${c.title||"Chapter "+(idx+1)}</span>
+              <span class="ep-row-arr">›</span>
+            </div>`).join("")}
+        </div>
+      </div>`;
+  }catch{body.innerHTML=`<div class="empty"><div class="empty-ico">⚠️</div>Gagal memuat novel</div>`;}
+}
+
+// ── NOVEL READER ──
+async function openReader(encodedUrl, encodedStoryTitle){
+  const url=decodeURIComponent(encodedUrl);
+  const storyTitle=encodedStoryTitle?decodeURIComponent(encodedStoryTitle):"";
+  const page=document.getElementById("reader-page");
+  const content=document.getElementById("reader-content");
+  document.getElementById("reader-back-title").textContent=storyTitle;
+  content.innerHTML=`<div class="loader"><div class="spinner"></div><div class="ldr-txt">Memuat chapter...</div></div>`;
+  page.classList.add("open"); document.body.style.overflow="hidden";
+  try{
+    const d=await apiGet(WP_API,{cmd:"read",url});
+    if(!d.success){content.innerHTML=`<div class="empty"><div class="empty-ico">😞</div>Gagal memuat chapter</div>`;return;}
+    document.getElementById("reader-back-title").textContent=d.story_title||storyTitle;
+    const paras=(d.content||[]);
+    content.innerHTML=`
+      <div class="reader-title">${d.chapter_title}</div>
+      <div class="reader-story">${d.story_title} · by ${d.author}</div>
+      ${paras.length?paras.map(p=>`<div class="reader-para">${p}</div>`).join(""):`<div class="empty"><div class="empty-ico">📄</div>Konten tidak tersedia</div>`}
+    `;
+  }catch{content.innerHTML=`<div class="empty"><div class="empty-ico">⚠️</div>Gagal memuat chapter</div>`;}
+}
+function closeReader(){
+  document.getElementById("reader-page").classList.remove("open");
+  document.body.style.overflow="";
+}
+
+// ══ DRACIN SECTION (DRAMABOX) ══
+async function loadDracinSection(){
+  const featEl=document.getElementById("dracin-featured-row");
+  try{
+    const d=await apiGet(DB_API,{cmd:"home"});
+    const featured=d.featured||[];
+    featEl.innerHTML=featured.length?featured.map(b=>dracinCardHTML(b)).join(""):`<div class="empty">Tidak ada data</div>`;
+  }catch{
+    featEl.innerHTML=`<div class="empty"><div class="empty-ico">⚠️</div>Gagal memuat</div>`;
+  }
+  loadDracinGrid();
+}
+async function loadDracinGrid(){
+  const el=document.getElementById("dracin-grid");
+  el.innerHTML=`<div class="loader" style="grid-column:1/-1"><div class="spinner"></div></div>`;
+  try{
+    const d=await apiGet(DB_API,{cmd:"browse",page:dracinPage,typeId:0});
+    const result=d.result||[];
+    if(!result.length){el.innerHTML=`<div class="empty" style="grid-column:1/-1">Tidak ada data</div>`;return;}
+    el.innerHTML=result.map(b=>`
+      <div class="dc" onclick="openDracinDetail('${b.id}','${encodeURIComponent(b.titleEn)}')">
+        <div class="dc-wrap">
+          <img class="dc-img" src="${IMG(b.cover)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
+          <div class="dc-badge">🎬 ${b.chapters||"-"}</div>
+          ${b.rating?`<div class="dc-rating">⭐ ${b.rating}</div>`:""}
+          <div class="dc-overlay"><div class="dc-title">${b.title}</div></div>
+        </div>
+      </div>`).join("");
+    document.getElementById("dcpage-prev").disabled=dracinPage<=1;
+    document.getElementById("dcpage-next").disabled=!d.hasNext;
+  }catch{el.innerHTML=`<div class="empty" style="grid-column:1/-1">⚠️ Gagal memuat</div>`;}
+}
+function changeDCPage(dir){ dracinPage=Math.max(1,dracinPage+dir); loadDracinGrid(); }
+
+function dracinCardHTML(b){
+  return `<div class="film-card" onclick="openDracinDetail('${b.id}','${encodeURIComponent(b.titleEn)}')">
+    <div class="film-card-wrap" style="height:160px">
+      <img class="film-card-img" src="${IMG(b.cover)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
+      <div class="film-card-overlay"><div class="film-card-title">${b.title}</div></div>
+    </div>
+  </div>`;
+}
+
+// ── DRACIN DETAIL ──
+async function openDracinDetail(bookId, encodedSlug){
+  const slug=decodeURIComponent(encodedSlug);
+  const page=document.getElementById("detail-page");
+  const body=document.getElementById("dp-body");
+  document.getElementById("dp-back-title").textContent="Memuat...";
+  body.innerHTML=`<div class="loader" style="padding:60px"><div class="spinner"></div><div class="ldr-txt">Memuat drama...</div></div>`;
+  page.classList.add("open"); document.body.style.overflow="hidden";
+  try{
+    const d=await apiGet(DB_API,{cmd:"detail",bookId,slug});
+    if(!d.success){body.innerHTML=`<div class="empty"><div class="empty-ico">😞</div>Drama tidak ditemukan</div>`;return;}
+    document.getElementById("dp-back-title").textContent=d.title;
+    const episodes=d.episodes||[];
+    body.innerHTML=`
+      <div class="dp-banner"><img class="dp-banner-img" src="${IMG(d.cover)}" onerror="this.style.display='none'"/></div>
+      <div class="dp-content">
+        <div class="dp-row">
+          <img class="dp-poster" src="${IMG(d.cover)}" onerror="this.style.background='#2a2a2a'"/>
+          <div class="dp-meta">
+            <div class="dp-title">${d.title}</div>
+            <div class="dp-tags">${(d.genres||[]).slice(0,4).map(g=>`<span class="dp-tag">${g}</span>`).join("")}</div>
+            <div class="dp-stats">
+              <div class="dp-stat">🎬 <strong>${d.totalEpisodes} Ep</strong></div>
+              <div class="dp-stat">🔓 <strong>${d.unlockedCount} Gratis</strong></div>
+              <div class="dp-stat">👁 <strong>${formatNum(d.views)}</strong></div>
+            </div>
+          </div>
+        </div>
+        ${d.description?`<div class="dp-synopsis">${d.description}</div>`:""}
+        <div class="ep-list-hd">Daftar Episode <span>(${episodes.length})</span></div>
+        <div class="ep-list">
+          ${episodes.map(e=>`
+            <div class="ep-row" onclick="${e.unlocked?`openDracinWatch('${encodeURIComponent(e.stream.m3u8||e.stream.mp4||"")}','${encodeURIComponent(d.title)}','Ep ${e.episode}')`:`toast('🔒 Episode terkunci')`}" style="${e.unlocked?'':'opacity:.5'}">
+              <span class="ep-row-num">Ep ${e.episode}</span>
+              <span class="ep-row-title">${e.title||""}</span>
+              <span class="ep-row-arr">${e.unlocked?'›':'🔒'}</span>
+            </div>`).join("")}
+        </div>
+      </div>`;
+  }catch{body.innerHTML=`<div class="empty"><div class="empty-ico">⚠️</div>Gagal memuat drama</div>`;}
+}
+
+// ── DRACIN WATCH ──
+function openDracinWatch(encodedUrl, encodedTitle, encodedEp){
+  const url=decodeURIComponent(encodedUrl);
+  if(!url){ toast("⚠️ Video tidak tersedia"); return; }
+  const title=decodeURIComponent(encodedTitle);
+  const ep=decodeURIComponent(encodedEp);
+  const page=document.getElementById("watch-page");
+  document.getElementById("wp-back-title").textContent=title;
+  document.getElementById("wp-ep-title").textContent=ep;
+  document.getElementById("wp-series-title").textContent=title;
+  document.getElementById("player-frame").src=url;
+  document.getElementById("srv-list").innerHTML=`<button class="srv-btn active">Server 1</button>`;
+  document.getElementById("btn-prev-ep").disabled=true;
+  document.getElementById("btn-next-ep").disabled=true;
+  page.classList.add("open");
+}
+
+
 // ── RENDER HELPERS ──
 function renderEpScroll(el,items,mode){
   mode = mode || "detail";
@@ -784,6 +1123,8 @@ function setSearchMode(m){
   searchModeVal=m;
   document.getElementById("smode-dh").classList.toggle("active",m==="donghua");
   document.getElementById("smode-film").classList.toggle("active",m==="film");
+  document.getElementById("smode-novel").classList.toggle("active",m==="novel");
+  document.getElementById("smode-dracin").classList.toggle("active",m==="dracin");
 }
 async function doSearch(){
   const q=document.getElementById("s-input").value.trim(); if(!q) return;
@@ -794,7 +1135,7 @@ async function doSearch(){
       const d=await apiGet(DH_API,{cmd:"search",query:q});
       if(!d.result||!d.result.length){el.innerHTML=`<div class="empty"><div class="empty-ico">🔍</div>Tidak ada hasil</div>`;return;}
       el.innerHTML=`<div class="grid3" style="padding-top:8px">${d.result.map(i=>gcHTML(i,"openDetail")).join("")}</div>`;
-    } else {
+    } else if(searchModeVal==="film"){
       const d=await apiGet(LK_API,{cmd:"search",query:q});
       if(!d.results||!d.results.length){el.innerHTML=`<div class="empty"><div class="empty-ico">🔍</div>Tidak ada hasil</div>`;return;}
       el.innerHTML=`<div class="film-grid2" style="padding-top:8px">${d.results.map(i=>`
@@ -802,6 +1143,22 @@ async function doSearch(){
           <div class="fg2-wrap">
             <img class="fg2-img" src="${IMG(i.image)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
             <div class="fg2-overlay"><div class="fg2-title">${i.title}</div></div>
+          </div>
+        </div>`).join("")}</div>`;
+    } else if(searchModeVal==="novel"){
+      const d=await apiGet(WP_API,{cmd:"search",query:q});
+      if(!d.stories||!d.stories.length){el.innerHTML=`<div class="empty"><div class="empty-ico">🔍</div>Tidak ada hasil</div>`;return;}
+      el.innerHTML=`<div class="novel-list" style="padding-top:8px">${d.stories.map(s=>novelCardHTML(s)).join("")}</div>`;
+    } else if(searchModeVal==="dracin"){
+      const d=await apiGet(DB_API,{cmd:"search",query:q});
+      if(!d.result||!d.result.length){el.innerHTML=`<div class="empty"><div class="empty-ico">🔍</div>Tidak ada hasil</div>`;return;}
+      el.innerHTML=`<div class="dracin-grid" style="padding-top:8px">${d.result.map(b=>`
+        <div class="dc" onclick="openDracinDetail('${b.id}','${encodeURIComponent(b.titleEn)}')">
+          <div class="dc-wrap">
+            <img class="dc-img" src="${IMG(b.cover)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
+            <div class="dc-badge">🎬 ${b.chapters||"-"}</div>
+            ${b.rating?`<div class="dc-rating">⭐ ${b.rating}</div>`:""}
+            <div class="dc-overlay"><div class="dc-title">${b.title}</div></div>
           </div>
         </div>`).join("")}</div>`;
     }
