@@ -1294,15 +1294,17 @@ async function openWatch(encodedSlug, encodedSeries, encodedThumb){
     watchData=d;
     document.getElementById("wp-back-title").textContent=d.title;
     document.getElementById("wp-ep-title").textContent=d.title;
-    const url=d.video_url||(d.servers&&d.servers[0]&&d.servers[0].url);
+    const isValidUrl=u=>typeof u==="string"&&/^https?:\/\//i.test(u.trim());
+    const url=isValidUrl(d.video_url)?d.video_url:(d.servers||[]).map(s=>s.url).find(isValidUrl);
     if(url) document.getElementById("player-frame").src=url;
+    else document.getElementById("player-frame").src="";
     const allSrv=[];
-    if(d.video_url) allSrv.push({name:"Default",url:d.video_url});
-    (d.servers||[]).forEach(sv=>{if(sv.url&&sv.url!==d.video_url) allSrv.push(sv);});
+    if(isValidUrl(d.video_url)) allSrv.push({name:"Default",url:d.video_url});
+    (d.servers||[]).forEach(sv=>{if(isValidUrl(sv.url)&&sv.url!==d.video_url) allSrv.push(sv);});
     const sl=document.getElementById("srv-list");
     sl.innerHTML=allSrv.length
-      ?allSrv.map((sv,i)=>`<button class="srv-btn ${i===0?'active':''}" onclick="switchSrv(this,'${encodeURIComponent(sv.url)}')">${sv.name||"Mirror "+(i+1)}</button>`).join("")
-      :`<div style="color:var(--muted);font-size:12px">Tidak ada mirror</div>`;
+      ?allSrv.map((sv,i)=>`<button class="srv-btn ${(sv.url===url)?'active':''}" onclick="switchSrv(this,'${encodeURIComponent(sv.url)}')">${sv.name||"Mirror "+(i+1)}</button>`).join("")
+      :`<div style="color:var(--muted);font-size:12px">⚠️ Tidak ada mirror yang tersedia untuk episode ini</div>`;
     document.getElementById("btn-prev-ep").disabled=!d.prev_episode;
     document.getElementById("btn-next-ep").disabled=!d.next_episode;
     if(seriesTitle) addHist(s,d.title,seriesTitle,thumb,"donghua");
