@@ -556,7 +556,7 @@ async function loadHome(){
         i=>openDetail(encodeURIComponent(slug(i.url))));
     }
 
-    renderEpScroll(document.getElementById("home-latest"),homeData.latest_episodes||[]);
+    renderEpScroll(document.getElementById("home-latest"),homeData.latest_episodes||[],"watch");
     renderPopular(pop);
 
     const kw=["perfect","immortal","heaven","god","spirit","dragon","sword","martial","dao","cultivat","divine","soul","battle","renegade","tales","coiling"];
@@ -594,7 +594,7 @@ async function loadDonghuaSection(){
         i=>openDetail(encodeURIComponent(slug(i.url))));
     }
 
-    renderEpScroll(document.getElementById("dh-latest"),homeData.latest_episodes||[]);
+    renderEpScroll(document.getElementById("dh-latest"),homeData.latest_episodes||[],"watch");
 
     // Today schedule
     const todayMap=["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
@@ -728,17 +728,23 @@ async function loadFilmGrid(){
 function changeFPage(dir){ filmPage=Math.max(1,filmPage+dir); loadFilmGrid(); }
 
 // ── RENDER HELPERS ──
-function renderEpScroll(el,items){
+function renderEpScroll(el,items,mode){
+  mode = mode || "detail";
   if(!items.length){el.innerHTML=`<div class="empty">Tidak ada data</div>`;return;}
-  el.innerHTML=items.map(i=>`
-    <div class="ep-card" onclick="openDetail('${encodeURIComponent(slug(i.url))}')">
+  el.innerHTML=items.map(i=>{
+    const clickFn = mode==="watch"
+      ? `openWatch('${encodeURIComponent(slug(i.url))}','${encodeURIComponent(i.seriesTitle||i.title)}','${encodeURIComponent(i.thumbnail||"")}')`
+      : `openDetail('${encodeURIComponent(slug(i.url))}')`;
+    return `
+    <div class="ep-card" onclick="${clickFn}">
       <div class="ep-thumb-wrap">
         <img class="ep-thumb" src="${IMG(i.thumbnail)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
         <div class="ep-new">NEW</div>
         <div class="ep-overlay"><div class="ep-num">${i.episode||""}</div></div>
       </div>
       <div class="ep-title">${i.title}</div>
-    </div>`).join("");
+    </div>`;
+  }).join("");
 }
 
 function renderGrid3(el,items){
