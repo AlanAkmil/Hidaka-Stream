@@ -60,28 +60,83 @@ async function home(page = 1) {
 
 async function detail(slug) {
   const $ = await get(`${BASE}/${slug}/`);
-  const title = $(".infox h1").text().trim();
+
+  // Title — try multiple selectors
+  let title = $(".infox h1").text().trim() || $("h1.entry-title").text().trim() || $("article h1").first().text().trim() || $("h1").first().text().trim();
   if (!title) return wrap({ error: "Series not found" });
+  title = title.replace(/\s+/g, " ").trim();
+
+  // Status & total episodes — try .spe span first, fallback to full text regex
   let status = null, totalEp = null;
   $(".spe span").each((_, el) => {
     const t = $(el).text();
     if (t.includes("Status:"))   status  = t.replace("Status:", "").trim();
     if (t.includes("Episodes:")) totalEp = t.replace("Episodes:", "").trim();
   });
-  const genres = [];
+  const bodyText = $("body").text();
+  if (!status) {
+    const sm = bodyText.match(/Status:\s*([A-Za-z]+)/);
+    if (sm) status = sm[1].trim();
+  }
+  if (!totalEp) {
+    const em = bodyText.match(/Episodes:\s*(\d+)/);
+    if (em) totalEp = em[1].trim();
+  }
+
+  // Genres
+  let genres = [];
   $(".genxed a").each((_, el) => genres.push($(el).text().trim()));
-  const synopsis = $(".entry-content p").first().text().trim();
-  const poster   = $(".thumb img").attr("src") || null;
-  const rating   = $(".num").first().text().trim() || null;
-  const episodes = [];
-  $(".eplister ul li a").each((_, el) => {
+  if (!genres.length) {
+    $("a[href*='/genres/']").each((_, el) => {
+      const g = $(el).text().trim();
+      if (g && !genres.includes(g)) genres.push(g);
+    });
+  }
+  genres = genres.slice(0, 8);
+
+  // Synopsis
+  let synopsis = $(".entry-content p").first().text().trim();
+  if (!synopsis || synopsis.length < 20) {
+    const sm = bodyText.match(/Synopsis[^]*?\n([^\n]{30,800})/i);
+    if (sm) synopsis = sm[1].trim();
+  }
+
+  // Poster
+  let poster = $(".thumb img").attr("src") || $("img[class*='wp-post-image']").attr("src") || $(".infox img, article img").first().attr("src") || null;
+
+  const rating = $(".num").first().text().trim() || null;
+
+  // Episode list — try .eplister first
+  let episodes = [];
+  $(".eplister ul li a, .eplister li a").each((_, el) => {
+    const href = $(el).attr("href");
+    if (!href) return;
     episodes.push({
-      episode:      $(el).find(".epl-num").text().trim() || "0",
+      episode:      $(el).find(".epl-num").text().trim() || (href.match(/episode-(\d+)/i) || [])[1] || "0",
       title:        $(el).find(".epl-title").text().trim() || "",
-      url:          $(el).attr("href"),
+      url:          href,
       release_date: $(el).find(".epl-date").text().trim() || null,
     });
   });
+
+  // Fallback: generate full episode list from slug pattern if scraped list is incomplete or empty
+  const totalNum = totalEp ? parseInt(totalEp.replace(/\D/g, "")) : 0;
+  if (totalNum > 0 && (episodes.length === 0 || episodes.length < totalNum)) {
+    const existingNums = new Set(episodes.map(e => parseInt(e.episode)));
+    const generated = [];
+    for (let n = totalNum; n >= 1; n--) {
+      if (existingNums.has(n)) continue;
+      const epPad = String(n).padStart(2, "0");
+      generated.push({
+        episode: String(n),
+        title: "",
+        url: `${BASE}/${slug}-episode-${epPad}-subtitle-indonesia/`,
+        release_date: null,
+      });
+    }
+    episodes = episodes.concat(generated).sort((a, b) => parseInt(b.episode) - parseInt(a.episode));
+  }
+
   return wrap({ title, status, total_episodes: totalEp, rating, genres, synopsis, poster, result: episodes });
 }
 
