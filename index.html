@@ -54,7 +54,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 .sh-more{font-size:12px;color:var(--gold);cursor:pointer;background:none;border:none}
 .gline{height:1px;background:linear-gradient(to right,transparent,var(--gold-dim),transparent);margin:4px 0}
 
-/* Hero Slider (Donghua style) */
+/* Hero Slider */
 .hero-wrap{position:relative;width:100%;height:230px;overflow:hidden;background:#111}
 .hero-track{display:flex;height:100%;transition:transform .4s ease}
 .hero-slide{flex:0 0 100%;position:relative;overflow:hidden}
@@ -86,7 +86,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 .cw-title{font-size:11px;font-weight:500;color:var(--text);display:-webkit-box;
   -webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.3}
 
-/* Episode Scroll (Donghua style) */
+/* Episode Scroll */
 .ep-scroll{display:flex;gap:10px;padding:0 16px;overflow-x:auto;scrollbar-width:none}
 .ep-scroll::-webkit-scrollbar{display:none}
 .ep-card{flex:0 0 110px;cursor:pointer}.ep-card:active{opacity:.85}
@@ -97,7 +97,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 .ep-new{position:absolute;top:5px;left:5px;background:var(--gold);color:#000;font-size:8px;font-weight:700;padding:2px 5px;border-radius:4px}
 .ep-title{font-size:11px;color:var(--text2);margin-top:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.3}
 
-/* Grid 3 (Donghua style) */
+/* Grid 3 */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0 16px}
 .gc{cursor:pointer}.gc:active{opacity:.85}
 .gc-wrap{position:relative;border-radius:var(--radius-sm);overflow:hidden;width:100%;aspect-ratio:2/3;background:var(--border)}
@@ -137,57 +137,55 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Inter'
 .tab-pill.active{background:var(--gold);color:#000;border-color:var(--gold)}
 
 /* ══════════════════════════════════════
-   FILM — NETFLIX STYLE (ENHANCED)
+   FILM — NETFLIX STYLE
 ══════════════════════════════════════ */
 
 /* Film Featured Banner */
-.film-featured{position:relative;width:100%;height:460px;overflow:hidden;background:#111;margin-bottom:8px}
-.film-feat-img{width:100%;height:100%;object-fit:cover;filter:brightness(0.85)}
+.film-featured{position:relative;width:100%;height:420px;overflow:hidden;background:#111}
+.film-feat-img{width:100%;height:100%;object-fit:cover}
 .film-feat-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(12,12,12,.98) 0%,rgba(12,12,12,.4) 60%,transparent 100%),
-             linear-gradient(to right,rgba(12,12,12,.8) 0%,transparent 40%);
-  display:flex;flex-direction:column;justify-content:flex-end;padding:20px 16px 30px}
-.film-feat-label{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
-.film-feat-title{font-size:28px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:8px;letter-spacing:-0.5px;text-shadow:0 2px 4px rgba(0,0,0,0.5)}
+  background:linear-gradient(to right,rgba(12,12,12,.92) 0%,rgba(12,12,12,.5) 60%,transparent 100%),
+             linear-gradient(to bottom,transparent 30%,rgba(12,12,12,.98) 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:20px 16px 24px}
+.film-feat-label{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.film-feat-title{font-size:26px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:8px}
 .film-feat-meta{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.film-feat-year{font-size:13px;color:var(--gold);font-weight:600}
-.film-feat-genre{font-size:13px;color:var(--text2)}
+.film-feat-year{font-size:12px;color:var(--gold);font-weight:600}
+.film-feat-genre{font-size:12px;color:var(--text2)}
 .film-feat-sep{width:4px;height:4px;border-radius:50%;background:var(--muted)}
-.film-feat-synopsis{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:20px;
-  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;max-width:360px}
-.film-feat-btns{display:flex;gap:12px}
-.film-feat-play{display:flex;align-items:center;gap:8px;background:var(--gold);
-  color:#000;font-size:14px;font-weight:700;padding:10px 24px;border-radius:var(--radius-sm);
+.film-feat-synopsis{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:16px;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.film-feat-btns{display:flex;gap:10px}
+.film-feat-play{display:flex;align-items:center;gap:7px;background:var(--gold);
+  color:#000;font-size:13px;font-weight:700;padding:10px 20px;border-radius:var(--radius-sm);
   border:none;cursor:pointer;transition:opacity .2s}
 .film-feat-play:active{opacity:.85}
-.film-feat-play svg{width:18px;height:18px;fill:#000;stroke:none}
-.film-feat-info{display:flex;align-items:center;gap:8px;background:#ffffff22;
-  color:#fff;font-size:14px;font-weight:600;padding:10px 20px;border-radius:var(--radius-sm);
+.film-feat-play svg{width:16px;height:16px;fill:#000;stroke:none}
+.film-feat-info{display:flex;align-items:center;gap:7px;background:#ffffff22;
+  color:#fff;font-size:13px;font-weight:600;padding:10px 18px;border-radius:var(--radius-sm);
   border:1px solid #ffffff33;cursor:pointer;backdrop-filter:blur(4px)}
-.film-feat-info svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+.film-feat-info svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2}
 
 /* Film Row (horizontal scroll) */
-.film-row-wrap{margin-bottom:12px}
-.film-row-title{font-size:16px;font-weight:700;color:var(--text);padding:16px 16px 10px;display:flex;align-items:center;justify-content:space-between}
+.film-row-wrap{margin-bottom:4px}
+.film-row-title{font-size:15px;font-weight:700;color:var(--text);padding:16px 16px 10px;display:flex;align-items:center;justify-content:space-between}
 .film-row-more{font-size:12px;color:var(--gold);cursor:pointer;background:none;border:none}
-.film-row{display:flex;gap:10px;padding:0 16px 8px;overflow-x:auto;scrollbar-width:none}
+.film-row{display:flex;gap:8px;padding:0 16px 4px;overflow-x:auto;scrollbar-width:none}
 .film-row::-webkit-scrollbar{display:none}
-.film-card{flex:0 0 130px;cursor:pointer}.film-card:active{opacity:.85}
-.film-card-wrap{position:relative;border-radius:8px;overflow:hidden;width:130px;aspect-ratio:2/3;background:var(--border);transition:transform 0.2s ease}
-.film-card:active .film-card-wrap{transform:scale(0.96)}
+.film-card{flex:0 0 120px;cursor:pointer}.film-card:active{opacity:.85}
+.film-card-wrap{position:relative;border-radius:var(--radius-sm);overflow:hidden;width:120px;height:170px;background:var(--border)}
 .film-card-img{width:100%;height:100%;object-fit:cover;display:block}
-.film-card-overlay{position:absolute;bottom:0;left:0;right:0;padding:8px;background:linear-gradient(transparent,rgba(0,0,0,.92))}
-.film-card-title{font-size:11px;font-weight:600;color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.3}
+.film-card-overlay{position:absolute;bottom:0;left:0;right:0;padding:6px;background:linear-gradient(transparent,rgba(0,0,0,.9))}
+.film-card-title{font-size:10px;font-weight:600;color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.3}
 
 /* Film Grid 2 col */
-.film-grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0 16px}
+.film-grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 16px}
 .fg2{cursor:pointer}.fg2:active{opacity:.85}
-.fg2-wrap{position:relative;border-radius:10px;overflow:hidden;width:100%;aspect-ratio:2/3;background:var(--border);transition:transform 0.2s}
-.fg2:active .fg2-wrap{transform:scale(0.96)}
+.fg2-wrap{position:relative;border-radius:var(--radius-sm);overflow:hidden;width:100%;aspect-ratio:2/3;background:var(--border)}
 .fg2-img{width:100%;height:100%;object-fit:cover;display:block}
-.fg2-overlay{position:absolute;bottom:0;left:0;right:0;padding:10px;background:linear-gradient(transparent,rgba(0,0,0,.92))}
-.fg2-title{font-size:13px;font-weight:600;color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.3}
+.fg2-overlay{position:absolute;bottom:0;left:0;right:0;padding:8px;background:linear-gradient(transparent,rgba(0,0,0,.92))}
+.fg2-title{font-size:12px;font-weight:600;color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.3}
 
 /* ══════════════════════════════════════
    SEARCH
@@ -465,34 +463,19 @@ const LK_API = "/api/lk21";
 const IMG = u => u ? `/api/img?url=${encodeURIComponent(u)}` : "";
 const HIST_KEY = "hs_history";
 
-// ==================== PERBAIKAN SLUG ====================
-function slug(url) { 
-  if (!url) return "";
-  try {
-    // Hapus domain
-    let path = url.replace(/^https?:\/\/[^/]+\//, "");
-    // Hapus trailing slash
-    path = path.replace(/\/$/, "");
-    // Hapus prefix 'anime/', 'donghua/', 'series/'
-    path = path.replace(/^(anime|donghua|series)\//, "");
-    return path;
-  } catch(e) {
-    return url;
-  }
-}
-// ========================================================
-
 // State
 let scheduleLoaded=false, scheduleData={}, currentDay="";
 let seriesMode="new", seriesPage=1;
 let filmGridMode="home", filmPage=1;
 let searchModeVal="donghua";
 let watchData=null;
-let homeHeroTimer=null;
-let dhHeroTimer=null;
+let homeHeroTimer=null, homeHeroIdx=0, homeHeroItems=[];
+let dhHeroTimer=null, dhHeroIdx=0, dhHeroItems=[];
+let filmFeatured=null;
 let dhLoaded=false, filmLoaded=false;
 
 // ── UTILS ──
+function slug(url){ return url?url.replace(/^https?:\/\/[^/]+\//,"").replace(/\/$/,""):""; }
 function toast(m){ const t=document.getElementById("toast"); t.textContent=m; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),2200); }
 async function apiGet(base,p){ const r=await fetch(`${base}?${new URLSearchParams(p)}`); if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); }
 
@@ -507,64 +490,54 @@ function addHist(slugVal,epTitle,seriesTitle,thumb,type){
 function clearHistory(){ saveHist([]); renderCW(); }
 function renderCW(){
   const h=getHist(); const sec=document.getElementById("cw-section"); const list=document.getElementById("cw-list");
-  if(!h.length){if(sec) sec.style.display="none";return;}
-  if(sec) sec.style.display="block";
-  if(list) list.innerHTML=h.map(i=>`
+  if(!h.length){sec.style.display="none";return;}
+  sec.style.display="block";
+  list.innerHTML=h.map(i=>`
     <div class="cw-card" onclick="${i.type==='film'?`openFilmWatch('${encodeURIComponent(i.slug)}','${encodeURIComponent(i.seriesTitle||"")}','${encodeURIComponent(i.thumb||"")}')`:`openWatch('${encodeURIComponent(i.slug)}')`}">
       <img class="cw-thumb" src="${IMG(i.thumb)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
       <div class="cw-bar"><div class="cw-prog"></div></div>
-      <div class="cw-info"><div class="cw-ep">${escapeHtml(i.epTitle||"")}</div><div class="cw-title">${escapeHtml(i.seriesTitle||"")}</div></div>
+      <div class="cw-info"><div class="cw-ep">${i.epTitle||""}</div><div class="cw-title">${i.seriesTitle||""}</div></div>
     </div>`).join("");
 }
 
 // ── HERO (generic) ──
 function buildHero(trackId, dotsId, items, timerRef, idxRef, clickFn){
-  const track=document.getElementById(trackId);
-  const dots=document.getElementById(dotsId);
-  if(!track || !dots) return null;
-  track.innerHTML=""; dots.innerHTML="";
   items.forEach((i,idx)=>{
     const slide=document.createElement("div"); slide.className="hero-slide";
     slide.innerHTML=`<img class="hero-img" src="${IMG(i.thumbnail||i.image)}" onerror="this.style.background='#1a1a1a'" loading="lazy"/>
       <div class="hero-overlay">
         <div class="hero-badge">✦ Populer</div>
-        <div class="hero-title">${escapeHtml(i.title)}</div>
+        <div class="hero-title">${i.title}</div>
         <div class="hero-meta"><span class="hero-status">ONGOING</span><span style="color:var(--muted)">•</span><span>Donghua</span></div>
       </div>`;
     slide.onclick=()=>clickFn(i);
-    track.appendChild(slide);
+    document.getElementById(trackId).appendChild(slide);
     const dot=document.createElement("div"); dot.className="hero-dot"+(idx===0?" active":"");
     dot.onclick=(e)=>{e.stopPropagation();goHeroTo(trackId,dotsId,idx,timerRef,idxRef,items.length);};
-    dots.appendChild(dot);
+    document.getElementById(dotsId).appendChild(dot);
   });
   return setInterval(()=>{
-    if(!idxRef || idxRef.val===undefined) idxRef={val:0};
     idxRef.val=(idxRef.val+1)%items.length;
     goHeroTo(trackId,dotsId,idxRef.val,timerRef,idxRef,items.length);
   },4000);
 }
 function goHeroTo(trackId,dotsId,i){
-  const track=document.getElementById(trackId);
-  const dots=document.getElementById(dotsId);
-  if(track) track.style.transform=`translateX(-${i*100}%)`;
-  if(dots) document.querySelectorAll(`#${dotsId} .hero-dot`).forEach((d,idx)=>d.classList.toggle("active",idx===i));
+  document.getElementById(trackId).style.transform=`translateX(-${i*100}%)`;
+  document.querySelectorAll(`#${dotsId} .hero-dot`).forEach((d,idx)=>d.classList.toggle("active",idx===i));
 }
-function escapeHtml(str){ if(!str) return ""; return str.replace(/[&<>]/g,function(m){if(m==="&") return "&amp;"; if(m==="<") return "&lt;"; if(m===">") return "&gt;"; return m;}); }
 
 // ── SECTION NAV ──
 function showSection(name){
   document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
   document.querySelectorAll(".bnav").forEach(b=>b.classList.remove("active"));
-  const sec = document.getElementById("sec-"+name);
-  const bn = document.getElementById("bn-"+name);
-  if(sec) sec.classList.add("active");
-  if(bn) bn.classList.add("active");
+  document.getElementById("sec-"+name).classList.add("active");
+  document.getElementById("bn-"+name).classList.add("active");
   if(name==="schedule"&&!scheduleLoaded) loadSchedule();
   if(name==="donghua"&&!dhLoaded){ dhLoaded=true; loadDonghuaSection(); }
   if(name==="film"&&!filmLoaded){ filmLoaded=true; loadFilmSection(); }
-  if(name==="home"){ renderCW(); }
+  if(name==="home") renderCW();
 }
-function goSearch(){ showSection("search"); setTimeout(()=>{const inp=document.getElementById("s-input"); if(inp) inp.focus();},100); }
+function goSearch(){ showSection("search"); setTimeout(()=>document.getElementById("s-input").focus(),100); }
 
 // ══ BERANDA ══
 async function loadHome(){
@@ -579,7 +552,6 @@ async function loadHome(){
     // Hero
     if(pop.length){
       const idxRef={val:0};
-      if(homeHeroTimer) clearInterval(homeHeroTimer);
       homeHeroTimer=buildHero("home-hero-track","home-hero-dots",pop.slice(0,8),homeHeroTimer,idxRef,
         i=>openDetail(encodeURIComponent(slug(i.url))));
     }
@@ -595,8 +567,14 @@ async function loadHome(){
     // Film row
     const films=(trendData.movies||[]).slice(0,12);
     const el=document.getElementById("home-film-row");
-    if(el) el.innerHTML=films.map(i=>filmCardHTML(i)).join("");
-  }catch(e){ console.warn(e); const el=document.getElementById("home-latest"); if(el) el.innerHTML=`<div class="empty">Gagal memuat</div>`; }
+    el.innerHTML=films.map(i=>`
+      <div class="film-card" onclick="openFilmDetail('${encodeURIComponent(i.url)}')">
+        <div class="film-card-wrap">
+          <img class="film-card-img" src="${IMG(i.image)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
+          <div class="film-card-overlay"><div class="film-card-title">${i.title}</div></div>
+        </div>
+      </div>`).join("");
+  }catch(e){ document.getElementById("home-latest").innerHTML=`<div class="empty">Gagal memuat</div>`; }
   renderCW();
 }
 
@@ -612,7 +590,6 @@ async function loadDonghuaSection(){
     // Hero
     if(pop.length){
       const idxRef={val:0};
-      if(dhHeroTimer) clearInterval(dhHeroTimer);
       dhHeroTimer=buildHero("dh-hero-track","dh-hero-dots",pop.slice(0,8),dhHeroTimer,idxRef,
         i=>openDetail(encodeURIComponent(slug(i.url))));
     }
@@ -625,144 +602,113 @@ async function loadDonghuaSection(){
     const sched=todayData.result||{};
     const todayItems=sched[todayName]||[];
     renderEpScroll(document.getElementById("dh-today"),todayItems.slice(0,12));
-  }catch(e){ console.warn(e); }
+  }catch{}
   loadDHGrid();
 }
 
 async function loadDHGrid(){
   const el=document.getElementById("dh-grid");
-  if(!el) return;
   el.innerHTML=`<div class="loader" style="grid-column:1/-1"><div class="spinner"></div></div>`;
   try{
     const d=await apiGet(DH_API,{cmd:seriesMode==="new"?"new-series":"completed",page:seriesPage});
     if(!d.result||!d.result.length){el.innerHTML=`<div class="empty" style="grid-column:1/-1">Tidak ada data</div>`;return;}
     el.innerHTML=d.result.map(i=>gcHTML(i,"openDetail")).join("");
-    const prevBtn=document.getElementById("dpage-prev");
-    const nextBtn=document.getElementById("dpage-next");
-    if(prevBtn) prevBtn.disabled=seriesPage<=1;
-    if(nextBtn) nextBtn.disabled=!d.has_next;
+    document.getElementById("dpage-prev").disabled=seriesPage<=1;
+    document.getElementById("dpage-next").disabled=!d.has_next;
   }catch{el.innerHTML=`<div class="empty" style="grid-column:1/-1">⚠️ Gagal memuat</div>`;}
 }
 function switchSeries(mode){
   seriesMode=mode; seriesPage=1;
-  const dtabNew=document.getElementById("dtab-new");
-  const dtabDone=document.getElementById("dtab-done");
-  const dhGridTitle=document.getElementById("dh-grid-title");
-  if(dtabNew) dtabNew.classList.toggle("active",mode==="new");
-  if(dtabDone) dtabDone.classList.toggle("active",mode==="completed");
-  if(dhGridTitle) dhGridTitle.textContent=mode==="new"?"Series Terbaru":"Series Tamat";
+  document.getElementById("dtab-new").classList.toggle("active",mode==="new");
+  document.getElementById("dtab-done").classList.toggle("active",mode==="completed");
+  document.getElementById("dh-grid-title").textContent=mode==="new"?"Series Terbaru":"Series Tamat";
   loadDHGrid();
 }
-function changeDPage(dir){ seriesPage=Math.max(1,seriesPage+dir); loadDHGrid(); const sec=document.getElementById("sec-donghua"); if(sec) sec.scrollTop=0; }
+function changeDPage(dir){ seriesPage=Math.max(1,seriesPage+dir); loadDHGrid(); document.getElementById("sec-donghua").scrollTop=0; }
 
-// ══ FILM SECTION (NETFLIX STYLE) ══
+// ══ FILM SECTION ══
 async function loadFilmSection(){
   try{
-    const [trendData, homeData] = await Promise.all([
-      apiGet(LK_API, { cmd: "trending", page: 1 }),
-      apiGet(LK_API, { cmd: "home", page: 1 })
+    const [trendData,homeData]=await Promise.all([
+      apiGet(LK_API,{cmd:"trending",page:1}),
+      apiGet(LK_API,{cmd:"home",page:1})
     ]);
 
-    // Featured Banner - ambil dari trending atau home
-    const featList = (trendData.movies && trendData.movies.length) ? trendData.movies : (homeData.movies || []);
-    const feat = featList[0];
-    if (feat) {
-      let det = { title: feat.title, synopsis: "", year: "", genre: "", image: feat.image };
-      try {
-        const d = await apiGet(LK_API, { cmd: "detail", url: feat.url });
-        if (d.success) det = d.detail;
-      } catch (e) { console.warn("Detail fetch failed", e); }
+    // Featured Banner — pakai film pertama dari trending
+    const feat=(trendData.movies||[])[0];
+    if(feat){
+      filmFeatured=feat;
+      let det={title:feat.title,synopsis:"",year:"",genre:"",image:feat.image};
+      try{
+        const d=await apiGet(LK_API,{cmd:"detail",url:feat.url});
+        if(d.success) det=d.detail;
+      }catch{}
       renderFilmFeatured(det, feat.url);
-    } else {
-      const featDiv=document.getElementById("film-featured");
-      if(featDiv) featDiv.innerHTML = `<div class="empty" style="height:100%">Tidak ada film</div>`;
     }
 
     // Trending row
-    const tr = document.getElementById("film-trending-row");
-    if(tr) tr.innerHTML = (trendData.movies || []).slice(0, 15).map(i => filmCardHTML(i)).join("");
+    const tr=document.getElementById("film-trending-row");
+    tr.innerHTML=(trendData.movies||[]).slice(0,15).map(i=>filmCardHTML(i)).join("");
 
-    // Home row (terbaru)
-    const hr = document.getElementById("film-home-row");
-    if(hr) hr.innerHTML = (homeData.movies || []).slice(0, 15).map(i => filmCardHTML(i)).join("");
-
-    // Jika trending row kosong, sembunyikan
-    if((!trendData.movies || trendData.movies.length === 0) && tr && tr.closest(".film-row-wrap")) {
-      tr.closest(".film-row-wrap").style.display = "none";
-    }
-  } catch (e) {
-    console.error(e);
-    const featDiv=document.getElementById("film-featured");
-    if(featDiv) featDiv.innerHTML = `<div class="empty" style="height:100%"><div class="empty-ico">⚠️</div>Gagal memuat film</div>`;
+    // Home row
+    const hr=document.getElementById("film-home-row");
+    hr.innerHTML=(homeData.movies||[]).slice(0,15).map(i=>filmCardHTML(i)).join("");
+  }catch{
+    document.getElementById("film-featured").innerHTML=`<div class="empty" style="height:100%"><div class="empty-ico">⚠️</div>Gagal memuat film</div>`;
   }
 }
 
-function renderFilmFeatured(det, url) {
-  const safeTitle = (det.title || "Film").substring(0, 45);
-  const safeSynopsis = (det.synopsis || "").substring(0, 160);
-  const yearBadge = (det.year && det.year !== "-") ? `<span class="film-feat-year">${escapeHtml(det.year)}</span><div class="film-feat-sep"></div>` : "";
-  const genreText = (det.genre || "").split(",")[0] || "Film";
-  const featDiv=document.getElementById("film-featured");
-  if(!featDiv) return;
-  
-  featDiv.innerHTML = `
-    <img class="film-feat-img" src="${IMG(det.image)}" onerror="this.style.background='#1a1a1a'; this.src=''"/>
+function renderFilmFeatured(det, url){
+  document.getElementById("film-featured").innerHTML=`
+    <img class="film-feat-img" src="${IMG(det.image)}" onerror="this.style.background='#1a1a1a'"/>
     <div class="film-feat-overlay">
-      <div class="film-feat-label">✦ NOW STREAMING</div>
-      <div class="film-feat-title">${escapeHtml(safeTitle)}</div>
+      <div class="film-feat-label">✦ Featured Film</div>
+      <div class="film-feat-title">${det.title}</div>
       <div class="film-feat-meta">
-        ${yearBadge}
-        <span class="film-feat-genre">${escapeHtml(genreText)}</span>
+        ${det.year&&det.year!=="-"?`<span class="film-feat-year">${det.year}</span><div class="film-feat-sep"></div>`:""}
+        <span class="film-feat-genre">${(det.genre||"").split(",")[0]||"Film"}</span>
       </div>
-      ${safeSynopsis ? `<div class="film-feat-synopsis">${escapeHtml(safeSynopsis)}</div>` : ""}
+      ${det.synopsis?`<div class="film-feat-synopsis">${det.synopsis}</div>`:""}
       <div class="film-feat-btns">
-        <button class="film-feat-play" onclick="openFilmWatch('${encodeURIComponent(url)}','${encodeURIComponent(safeTitle)}','${encodeURIComponent(det.image || "")}')">
+        <button class="film-feat-play" onclick="openFilmWatch('${encodeURIComponent(url)}','${encodeURIComponent(det.title)}','${encodeURIComponent(det.image||"")}')">
           <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" fill="#000"/></svg>
           Tonton
         </button>
         <button class="film-feat-info" onclick="openFilmDetail('${encodeURIComponent(url)}')">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Detail
+          Info
         </button>
       </div>
     </div>`;
 }
 
-function filmCardHTML(i) {
+function filmCardHTML(i){
   return `<div class="film-card" onclick="openFilmDetail('${encodeURIComponent(i.url)}')">
     <div class="film-card-wrap">
       <img class="film-card-img" src="${IMG(i.image)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
-      <div class="film-card-overlay"><div class="film-card-title">${escapeHtml((i.title || "").substring(0, 35))}</div></div>
+      <div class="film-card-overlay"><div class="film-card-title">${i.title}</div></div>
     </div>
   </div>`;
 }
 
 function filmShowGrid(mode){
   filmGridMode=mode; filmPage=1;
-  const gridSection=document.getElementById("film-grid-section");
-  const ftabHome=document.getElementById("ftab-home");
-  const ftabTrending=document.getElementById("ftab-trending");
-  const gridTitle=document.getElementById("film-grid-title");
-  if(gridSection) gridSection.style.display="block";
-  if(ftabHome) ftabHome.classList.toggle("active",mode==="home");
-  if(ftabTrending) ftabTrending.classList.toggle("active",mode==="trending");
-  if(gridTitle) gridTitle.textContent=mode==="trending"?"Film Trending":"Film Terbaru";
+  document.getElementById("film-grid-section").style.display="block";
+  document.getElementById("ftab-home").classList.toggle("active",mode==="home");
+  document.getElementById("ftab-trending").classList.toggle("active",mode==="trending");
+  document.getElementById("film-grid-title").textContent=mode==="trending"?"Film Trending":"Film Terbaru";
   loadFilmGrid();
-  setTimeout(()=>{ if(gridSection) gridSection.scrollIntoView({behavior:"smooth"}); },100);
+  setTimeout(()=>document.getElementById("film-grid-section").scrollIntoView({behavior:"smooth"}),100);
 }
-function closeFilmGrid(){ const gs=document.getElementById("film-grid-section"); if(gs) gs.style.display="none"; }
+function closeFilmGrid(){ document.getElementById("film-grid-section").style.display="none"; }
 function switchFilmGrid(mode){ filmGridMode=mode; filmPage=1;
-  const ftabHome=document.getElementById("ftab-home");
-  const ftabTrending=document.getElementById("ftab-trending");
-  const gridTitle=document.getElementById("film-grid-title");
-  if(ftabHome) ftabHome.classList.toggle("active",mode==="home");
-  if(ftabTrending) ftabTrending.classList.toggle("active",mode==="trending");
-  if(gridTitle) gridTitle.textContent=mode==="trending"?"Film Trending":"Film Terbaru";
+  document.getElementById("ftab-home").classList.toggle("active",mode==="home");
+  document.getElementById("ftab-trending").classList.toggle("active",mode==="trending");
+  document.getElementById("film-grid-title").textContent=mode==="trending"?"Film Trending":"Film Terbaru";
   loadFilmGrid();
 }
 async function loadFilmGrid(){
   const el=document.getElementById("film-grid");
-  if(!el) return;
   el.innerHTML=`<div class="loader" style="grid-column:1/-1"><div class="spinner"></div></div>`;
   try{
     const d=await apiGet(LK_API,{cmd:filmGridMode,page:filmPage});
@@ -772,34 +718,30 @@ async function loadFilmGrid(){
       <div class="fg2" onclick="openFilmDetail('${encodeURIComponent(i.url)}')">
         <div class="fg2-wrap">
           <img class="fg2-img" src="${IMG(i.image)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
-          <div class="fg2-overlay"><div class="fg2-title">${escapeHtml(i.title)}</div></div>
+          <div class="fg2-overlay"><div class="fg2-title">${i.title}</div></div>
         </div>
       </div>`).join("");
-    const prevBtn=document.getElementById("fpage-prev");
-    const nextBtn=document.getElementById("fpage-next");
-    if(prevBtn) prevBtn.disabled=filmPage<=1;
-    if(nextBtn) nextBtn.disabled=movies.length<8;
+    document.getElementById("fpage-prev").disabled=filmPage<=1;
+    document.getElementById("fpage-next").disabled=movies.length<8;
   }catch{el.innerHTML=`<div class="empty" style="grid-column:1/-1">⚠️ Gagal memuat</div>`;}
 }
 function changeFPage(dir){ filmPage=Math.max(1,filmPage+dir); loadFilmGrid(); }
 
 // ── RENDER HELPERS ──
 function renderEpScroll(el,items){
-  if(!el) return;
   if(!items.length){el.innerHTML=`<div class="empty">Tidak ada data</div>`;return;}
   el.innerHTML=items.map(i=>`
     <div class="ep-card" onclick="openDetail('${encodeURIComponent(slug(i.url))}')">
       <div class="ep-thumb-wrap">
         <img class="ep-thumb" src="${IMG(i.thumbnail)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
         <div class="ep-new">NEW</div>
-        <div class="ep-overlay"><div class="ep-num">${escapeHtml(i.episode||"")}</div></div>
+        <div class="ep-overlay"><div class="ep-num">${i.episode||""}</div></div>
       </div>
-      <div class="ep-title">${escapeHtml(i.title)}</div>
+      <div class="ep-title">${i.title}</div>
     </div>`).join("");
 }
 
 function renderGrid3(el,items){
-  if(!el) return;
   if(!items.length){el.innerHTML=`<div class="empty" style="grid-column:1/-1">Tidak ada data</div>`;return;}
   el.innerHTML=items.map(i=>gcHTML(i,"openDetail")).join("");
 }
@@ -809,43 +751,38 @@ function gcHTML(i,fn){
   return `<div class="gc" onclick="${fn}('${encodeURIComponent(slug(url))}')">
     <div class="gc-wrap">
       <img class="gc-img" src="${IMG(i.thumbnail||i.image)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
-      <div class="gc-badge">${escapeHtml(i.status||"NEW")}</div>
-      <div class="gc-overlay"><div class="gc-eps">${escapeHtml(i.episode||"")}</div></div>
+      <div class="gc-badge">${i.status||"NEW"}</div>
+      <div class="gc-overlay"><div class="gc-eps">${i.episode||""}</div></div>
     </div>
-    <div class="gc-title">${escapeHtml(i.title)}</div>
+    <div class="gc-title">${i.title}</div>
   </div>`;
 }
 
 function renderPopular(items){
   const el=document.getElementById("home-popular");
-  if(!el) return;
   if(!items.length){el.innerHTML="";return;}
   el.innerHTML=items.map((i,idx)=>`
     <div class="pop-item" onclick="openDetail('${encodeURIComponent(slug(i.url))}')">
       <span class="pop-rank ${idx<3?'t':''}">${String(idx+1).padStart(2,"0")}</span>
       <img class="pop-img" src="${IMG(i.thumbnail)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
       <div class="pop-info">
-        <div class="pop-title">${escapeHtml(i.title)}</div>
+        <div class="pop-title">${i.title}</div>
         <div class="pop-meta"><span class="pop-tag on">ONGOING</span><span class="pop-ep">Donghua</span></div>
       </div>
     </div>`).join("");
 }
 
 // ── SEARCH ──
-const searchInput=document.getElementById("s-input");
-if(searchInput) searchInput.addEventListener("keydown",e=>{if(e.key==="Enter")doSearch();});
+document.getElementById("s-input").addEventListener("keydown",e=>{if(e.key==="Enter")doSearch();});
 function setSearchMode(m){
   searchModeVal=m;
-  const smodeDh=document.getElementById("smode-dh");
-  const smodeFilm=document.getElementById("smode-film");
-  if(smodeDh) smodeDh.classList.toggle("active",m==="donghua");
-  if(smodeFilm) smodeFilm.classList.toggle("active",m==="film");
+  document.getElementById("smode-dh").classList.toggle("active",m==="donghua");
+  document.getElementById("smode-film").classList.toggle("active",m==="film");
 }
 async function doSearch(){
   const q=document.getElementById("s-input").value.trim(); if(!q) return;
   const el=document.getElementById("search-results");
-  if(!el) return;
-  el.innerHTML=`<div class="loader"><div class="spinner"></div><div class="ldr-txt">Mencari "${escapeHtml(q)}"...</div></div>`;
+  el.innerHTML=`<div class="loader"><div class="spinner"></div><div class="ldr-txt">Mencari "${q}"...</div></div>`;
   try{
     if(searchModeVal==="donghua"){
       const d=await apiGet(DH_API,{cmd:"search",query:q});
@@ -858,7 +795,7 @@ async function doSearch(){
         <div class="fg2" onclick="openFilmDetail('${encodeURIComponent(i.url)}')">
           <div class="fg2-wrap">
             <img class="fg2-img" src="${IMG(i.image)}" onerror="this.style.background='#2a2a2a'" loading="lazy"/>
-            <div class="fg2-overlay"><div class="fg2-title">${escapeHtml(i.title)}</div></div>
+            <div class="fg2-overlay"><div class="fg2-title">${i.title}</div></div>
           </div>
         </div>`).join("")}</div>`;
     }
@@ -872,16 +809,14 @@ async function loadSchedule(){
     const d=await apiGet(DH_API,{cmd:"schedule"});
     scheduleData=d.result||{};
     const days=Object.keys(scheduleData);
-    const dayTabs=document.getElementById("day-tabs");
-    const schGrid=document.getElementById("sch-grid");
-    if(!days.length){if(schGrid) schGrid.innerHTML=`<div class="empty" style="grid-column:1/-1">Tidak ada jadwal</div>`;return;}
+    if(!days.length){document.getElementById("sch-grid").innerHTML=`<div class="empty" style="grid-column:1/-1">Tidak ada jadwal</div>`;return;}
     const todayMap=["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
     const todayName=todayMap[new Date().getDay()];
     currentDay=days.includes(todayName)?todayName:days[0];
-    if(dayTabs) dayTabs.innerHTML=days.map(day=>`
+    document.getElementById("day-tabs").innerHTML=days.map(day=>`
       <button class="day-tab ${day===currentDay?'active':''}" onclick="switchDay('${day}')">${day}</button>`).join("");
     renderSchDay(currentDay);
-  }catch(e){ console.warn(e); const sg=document.getElementById("sch-grid"); if(sg) sg.innerHTML=`<div class="empty" style="grid-column:1/-1">⚠️ Gagal</div>`; }
+  }catch{document.getElementById("sch-grid").innerHTML=`<div class="empty" style="grid-column:1/-1">⚠️ Gagal</div>`;}
 }
 function switchDay(day){
   currentDay=day;
@@ -891,7 +826,6 @@ function switchDay(day){
 function renderSchDay(day){
   const items=scheduleData[day]||[];
   const el=document.getElementById("sch-grid");
-  if(!el) return;
   if(!items.length){el.innerHTML=`<div class="empty" style="grid-column:1/-1">Tidak ada</div>`;return;}
   el.innerHTML=items.map(i=>gcHTML(i,"openDetail")).join("");
 }
@@ -901,77 +835,73 @@ async function openDetail(encodedSlug){
   const s=decodeURIComponent(encodedSlug);
   const page=document.getElementById("detail-page");
   const body=document.getElementById("dp-body");
-  const backTitle=document.getElementById("dp-back-title");
-  if(backTitle) backTitle.textContent=s;
-  if(body) body.innerHTML=`<div class="loader" style="padding:60px"><div class="spinner"></div><div class="ldr-txt">Memuat...</div></div>`;
-  if(page) page.classList.add("open");
-  document.body.style.overflow="hidden";
+  document.getElementById("dp-back-title").textContent=s;
+  body.innerHTML=`<div class="loader" style="padding:60px"><div class="spinner"></div><div class="ldr-txt">Memuat...</div></div>`;
+  page.classList.add("open"); document.body.style.overflow="hidden";
   try{
     const d=await apiGet(DH_API,{cmd:"detail",slug:s});
-    if(d.error){if(body) body.innerHTML=`<div class="empty"><div class="empty-ico">😞</div>${escapeHtml(d.error)}</div>`;return;}
-    if(backTitle) backTitle.textContent=d.title;
+    if(d.error){body.innerHTML=`<div class="empty"><div class="empty-ico">😞</div>${d.error}</div>`;return;}
+    document.getElementById("dp-back-title").textContent=d.title;
     const eps=d.result||[];
-    if(body) body.innerHTML=`
+    body.innerHTML=`
       <div class="dp-banner"><img class="dp-banner-img" src="${IMG(d.poster)}" onerror="this.style.display='none'"/></div>
       <div class="dp-content">
         <div class="dp-row">
           <img class="dp-poster" src="${IMG(d.poster)}" onerror="this.style.background='#2a2a2a'"/>
           <div class="dp-meta">
-            <div class="dp-title">${escapeHtml(d.title)}</div>
-            <div class="dp-tags">${(d.genres||[]).slice(0,4).map(g=>`<span class="dp-tag">${escapeHtml(g)}</span>`).join("")}</div>
+            <div class="dp-title">${d.title}</div>
+            <div class="dp-tags">${(d.genres||[]).slice(0,4).map(g=>`<span class="dp-tag">${g}</span>`).join("")}</div>
             <div class="dp-stats">
-              ${d.rating?`<div class="dp-stat">⭐ <strong>${escapeHtml(d.rating)}</strong></div>`:""}
-              ${d.status?`<div class="dp-stat">📺 <strong>${escapeHtml(d.status)}</strong></div>`:""}
-              ${d.total_episodes?`<div class="dp-stat">🎬 <strong>${escapeHtml(d.total_episodes)} Ep</strong></div>`:""}
+              ${d.rating?`<div class="dp-stat">⭐ <strong>${d.rating}</strong></div>`:""}
+              ${d.status?`<div class="dp-stat">📺 <strong>${d.status}</strong></div>`:""}
+              ${d.total_episodes?`<div class="dp-stat">🎬 <strong>${d.total_episodes} Ep</strong></div>`:""}
             </div>
           </div>
         </div>
-        ${d.synopsis?`<div class="dp-synopsis">${escapeHtml(d.synopsis)}</div>`:""}
+        ${d.synopsis?`<div class="dp-synopsis">${d.synopsis}</div>`:""}
         <div class="ep-list-hd">Daftar Episode <span>(${eps.length})</span></div>
         <div class="ep-list">
           ${eps.map(e=>`
             <div class="ep-row" onclick="openWatch('${encodeURIComponent(slug(e.url))}','${encodeURIComponent(d.title)}','${encodeURIComponent(d.poster||"")}')">
-              <span class="ep-row-num">Ep ${escapeHtml(e.episode)}</span>
-              <span class="ep-row-title">${escapeHtml(e.title||d.title)}</span>
-              <span class="ep-row-date">${escapeHtml(e.release_date||"")}</span>
+              <span class="ep-row-num">Ep ${e.episode}</span>
+              <span class="ep-row-title">${e.title||d.title}</span>
+              <span class="ep-row-date">${e.release_date||""}</span>
               <span class="ep-row-arr">›</span>
             </div>`).join("")}
         </div>
       </div>`;
-  }catch(e){ if(body) body.innerHTML=`<div class="empty"><div class="empty-ico">⚠️</div>Gagal memuat</div>`; }
+  }catch{body.innerHTML=`<div class="empty"><div class="empty-ico">⚠️</div>Gagal memuat</div>`;}
 }
-function closeDetail(){ const page=document.getElementById("detail-page"); if(page) page.classList.remove("open"); document.body.style.overflow=""; }
+function closeDetail(){ document.getElementById("detail-page").classList.remove("open"); document.body.style.overflow=""; }
 
 // ── FILM DETAIL ──
 async function openFilmDetail(encodedUrl){
   const url=decodeURIComponent(encodedUrl);
   const page=document.getElementById("detail-page");
   const body=document.getElementById("dp-body");
-  const backTitle=document.getElementById("dp-back-title");
-  if(backTitle) backTitle.textContent="Memuat...";
-  if(body) body.innerHTML=`<div class="loader" style="padding:60px"><div class="spinner"></div><div class="ldr-txt">Memuat film...</div></div>`;
-  if(page) page.classList.add("open");
-  document.body.style.overflow="hidden";
+  document.getElementById("dp-back-title").textContent="Memuat...";
+  body.innerHTML=`<div class="loader" style="padding:60px"><div class="spinner"></div><div class="ldr-txt">Memuat film...</div></div>`;
+  page.classList.add("open"); document.body.style.overflow="hidden";
   try{
     const d=await apiGet(LK_API,{cmd:"detail",url});
-    if(!d.success){if(body) body.innerHTML=`<div class="empty"><div class="empty-ico">😞</div>Film tidak ditemukan</div>`;return;}
+    if(!d.success){body.innerHTML=`<div class="empty"><div class="empty-ico">😞</div>Film tidak ditemukan</div>`;return;}
     const det=d.detail;
-    if(backTitle) backTitle.textContent=det.title;
-    if(body) body.innerHTML=`
+    document.getElementById("dp-back-title").textContent=det.title;
+    body.innerHTML=`
       <div class="dp-banner"><img class="dp-banner-img" src="${IMG(det.image)}" onerror="this.style.display='none'"/></div>
       <div class="dp-content">
         <div class="dp-row">
           <img class="dp-poster" src="${IMG(det.image)}" onerror="this.style.background='#2a2a2a'"/>
           <div class="dp-meta">
-            <div class="dp-title">${escapeHtml(det.title)}</div>
-            <div class="dp-tags">${(det.genre||"").split(",").filter(Boolean).map(g=>`<span class="dp-tag">${escapeHtml(g.trim())}</span>`).join("")}</div>
+            <div class="dp-title">${det.title}</div>
+            <div class="dp-tags">${(det.genre||"").split(",").filter(Boolean).map(g=>`<span class="dp-tag">${g.trim()}</span>`).join("")}</div>
             <div class="dp-stats">
-              ${det.year&&det.year!=="-"?`<div class="dp-stat">📅 <strong>${escapeHtml(det.year)}</strong></div>`:""}
+              ${det.year&&det.year!=="-"?`<div class="dp-stat">📅 <strong>${det.year}</strong></div>`:""}
               <div class="dp-stat">🎬 <strong>Film</strong></div>
             </div>
           </div>
         </div>
-        ${det.synopsis?`<div class="dp-synopsis">${escapeHtml(det.synopsis)}</div>`:""}
+        ${det.synopsis?`<div class="dp-synopsis">${det.synopsis}</div>`:""}
         <div class="ep-list-hd">Tonton Film</div>
         <div class="ep-list">
           <div class="ep-row" onclick="openFilmWatch('${encodeURIComponent(url)}','${encodeURIComponent(det.title)}','${encodeURIComponent(det.image||"")}')">
@@ -981,7 +911,7 @@ async function openFilmDetail(encodedUrl){
           </div>
         </div>
       </div>`;
-  }catch(e){ if(body) body.innerHTML=`<div class="empty"><div class="empty-ico">⚠️</div>Gagal memuat</div>`; }
+  }catch{body.innerHTML=`<div class="empty"><div class="empty-ico">⚠️</div>Gagal memuat</div>`;}
 }
 
 // ── DONGHUA WATCH ──
@@ -990,37 +920,31 @@ async function openWatch(encodedSlug, encodedSeries, encodedThumb){
   const seriesTitle=encodedSeries?decodeURIComponent(encodedSeries):"";
   const thumb=encodedThumb?decodeURIComponent(encodedThumb):"";
   const page=document.getElementById("watch-page");
-  const backTitle=document.getElementById("wp-back-title");
-  const epTitle=document.getElementById("wp-ep-title");
-  const seriesTitleEl=document.getElementById("wp-series-title");
-  const player=document.getElementById("player-frame");
-  const srvList=document.getElementById("srv-list");
-  if(backTitle) backTitle.textContent=s;
-  if(epTitle) epTitle.textContent="";
-  if(seriesTitleEl) seriesTitleEl.textContent=seriesTitle;
-  if(player) player.src="";
-  if(srvList) srvList.innerHTML=`<div class="loader" style="width:100%"><div class="spinner"></div></div>`;
-  if(page) page.classList.add("open");
+  document.getElementById("wp-back-title").textContent=s;
+  document.getElementById("wp-ep-title").textContent="";
+  document.getElementById("wp-series-title").textContent=seriesTitle;
+  document.getElementById("player-frame").src="";
+  document.getElementById("srv-list").innerHTML=`<div class="loader" style="width:100%"><div class="spinner"></div></div>`;
+  page.classList.add("open");
   try{
     const d=await apiGet(DH_API,{cmd:"watch",slug:s});
     watchData=d;
-    if(backTitle) backTitle.textContent=d.title;
-    if(epTitle) epTitle.textContent=d.title;
+    document.getElementById("wp-back-title").textContent=d.title;
+    document.getElementById("wp-ep-title").textContent=d.title;
     const url=d.video_url||(d.servers&&d.servers[0]&&d.servers[0].url);
-    if(url && player) player.src=url;
+    if(url) document.getElementById("player-frame").src=url;
     const allSrv=[];
     if(d.video_url) allSrv.push({name:"Default",url:d.video_url});
     (d.servers||[]).forEach(sv=>{if(sv.url&&sv.url!==d.video_url) allSrv.push(sv);});
-    if(srvList) srvList.innerHTML=allSrv.length
-      ?allSrv.map((sv,i)=>`<button class="srv-btn ${i===0?'active':''}" onclick="switchSrv(this,'${encodeURIComponent(sv.url)}')">${escapeHtml(sv.name||"Mirror "+(i+1))}</button>`).join("")
+    const sl=document.getElementById("srv-list");
+    sl.innerHTML=allSrv.length
+      ?allSrv.map((sv,i)=>`<button class="srv-btn ${i===0?'active':''}" onclick="switchSrv(this,'${encodeURIComponent(sv.url)}')">${sv.name||"Mirror "+(i+1)}</button>`).join("")
       :`<div style="color:var(--muted);font-size:12px">Tidak ada mirror</div>`;
-    const prevBtn=document.getElementById("btn-prev-ep");
-    const nextBtn=document.getElementById("btn-next-ep");
-    if(prevBtn) prevBtn.disabled=!d.prev_episode;
-    if(nextBtn) nextBtn.disabled=!d.next_episode;
+    document.getElementById("btn-prev-ep").disabled=!d.prev_episode;
+    document.getElementById("btn-next-ep").disabled=!d.next_episode;
     if(seriesTitle) addHist(s,d.title,seriesTitle,thumb,"donghua");
-  }catch(e){
-    if(srvList) srvList.innerHTML=`<div style="color:var(--muted);font-size:12px;padding:8px">⚠️ Gagal memuat player</div>`;
+  }catch{
+    document.getElementById("srv-list").innerHTML=`<div style="color:var(--muted);font-size:12px;padding:8px">⚠️ Gagal memuat player</div>`;
   }
 }
 
@@ -1030,40 +954,32 @@ async function openFilmWatch(encodedUrl, encodedTitle, encodedThumb){
   const title=encodedTitle?decodeURIComponent(encodedTitle):"";
   const thumb=encodedThumb?decodeURIComponent(encodedThumb):"";
   const page=document.getElementById("watch-page");
-  const backTitle=document.getElementById("wp-back-title");
-  const epTitle=document.getElementById("wp-ep-title");
-  const seriesTitleEl=document.getElementById("wp-series-title");
-  const player=document.getElementById("player-frame");
-  const srvList=document.getElementById("srv-list");
-  const prevBtn=document.getElementById("btn-prev-ep");
-  const nextBtn=document.getElementById("btn-next-ep");
-  if(backTitle) backTitle.textContent=title;
-  if(epTitle) epTitle.textContent=title;
-  if(seriesTitleEl) seriesTitleEl.textContent="Film";
-  if(player) player.src="";
-  if(srvList) srvList.innerHTML=`<div class="loader" style="width:100%"><div class="spinner"></div></div>`;
-  if(prevBtn) prevBtn.disabled=true;
-  if(nextBtn) nextBtn.disabled=true;
-  if(page) page.classList.add("open");
+  document.getElementById("wp-back-title").textContent=title;
+  document.getElementById("wp-ep-title").textContent=title;
+  document.getElementById("wp-series-title").textContent="Film";
+  document.getElementById("player-frame").src="";
+  document.getElementById("srv-list").innerHTML=`<div class="loader" style="width:100%"><div class="spinner"></div></div>`;
+  document.getElementById("btn-prev-ep").disabled=true;
+  document.getElementById("btn-next-ep").disabled=true;
+  page.classList.add("open");
   try{
     const d=await apiGet(LK_API,{cmd:"stream",url});
-    if(d.embed_url && player){
-      player.src=d.embed_url;
-      if(srvList) srvList.innerHTML=`<button class="srv-btn active">Server 1</button>`;
+    if(d.embed_url){
+      document.getElementById("player-frame").src=d.embed_url;
+      document.getElementById("srv-list").innerHTML=`<button class="srv-btn active">Server 1</button>`;
       addHist(url,title,title,thumb,"film");
     } else {
-      if(srvList) srvList.innerHTML=`<div style="color:var(--muted);font-size:12px">Tidak ada stream</div>`;
+      document.getElementById("srv-list").innerHTML=`<div style="color:var(--muted);font-size:12px">Tidak ada stream</div>`;
     }
-  }catch(e){
-    if(srvList) srvList.innerHTML=`<div style="color:var(--muted);font-size:12px;padding:8px">⚠️ Gagal memuat stream</div>`;
+  }catch{
+    document.getElementById("srv-list").innerHTML=`<div style="color:var(--muted);font-size:12px;padding:8px">⚠️ Gagal memuat stream</div>`;
   }
 }
 
 function switchSrv(btn,encodedUrl){
   document.querySelectorAll(".srv-btn").forEach(b=>b.classList.remove("active"));
   btn.classList.add("active");
-  const player=document.getElementById("player-frame");
-  if(player) player.src=decodeURIComponent(encodedUrl);
+  document.getElementById("player-frame").src=decodeURIComponent(encodedUrl);
 }
 function navEp(dir){
   if(!watchData) return;
@@ -1071,14 +987,11 @@ function navEp(dir){
   if(url) openWatch(encodeURIComponent(slug(url)));
 }
 function closeWatch(){
-  const page=document.getElementById("watch-page");
-  const player=document.getElementById("player-frame");
-  if(page) page.classList.remove("open");
-  if(player) player.src="";
+  document.getElementById("watch-page").classList.remove("open");
+  document.getElementById("player-frame").src="";
   watchData=null; renderCW();
 }
 
-// Start
 loadHome();
 </script>
 </body>
